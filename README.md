@@ -96,16 +96,59 @@ Step14. click on debug and simulate using simulation as shown below
   
 
 ## STM 32 CUBE PROGRAM :
+```
+#include "main.h"
 
+
+TIM_HandleTypeDef htim2;
+
+
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+static void MX_TIM2_Init(void);
+
+int main(void)
+{
+
+  HAL_Init();
+
+
+  SystemClock_Config();
+
+
+  MX_GPIO_Init();
+  MX_TIM2_Init();
+
+  HAL_TIM_Base_Start(&htim2);
+  HAL_TIM_PWM_Init(&htim2);
+  HAL_TIM_PWM_Start(&htim2,TIM_CHANNEL_1);
+
+  while (1)
+  {
+
+  }
+
+}
+```
 
 
 
 
 ## Output screen shots of proteus  :
+
+<img width="734" height="455" alt="image" src="https://github.com/user-attachments/assets/5b347009-9bf7-4f7a-b9d7-09a31900561e" />
+
+<img width="732" height="444" alt="image" src="https://github.com/user-attachments/assets/ce2f8f48-6476-41f1-a8a8-8711590dfb0a" />
+
+
+<img width="737" height="438" alt="image" src="https://github.com/user-attachments/assets/4a380bf9-13b1-4582-a91d-09470c073479" />
+
+
  
  
  ## CIRCUIT DIAGRAM (EXPORT THE GRAPHICS TO PDF AND ADD THE SCREEN SHOT HERE): 
- 
+ <img width="669" height="702" alt="image" src="https://github.com/user-attachments/assets/ddd1ac85-18a4-4cc0-9db4-713eaa02fe71" />
+
 
 ## DUTY CYCLE AND FREQUENCY CALCULATION 
 FOR PULSE AT 500
